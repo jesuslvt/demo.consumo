@@ -1,0 +1,15 @@
+com\example\demo\consumo\schemas\GetPolizaRequest.class
+com\example\demo\consumo\schemas\Map.class
+com\example\demo\consumo\schemas\GetContractResponse.class
+com\example\demo\consumo\schemas\Firmante.class
+com\example\demo\consumo\schemas\package-info.class
+com\example\demo\consumo\Config.class
+com\example\demo\consumo\schemas\MapEntry.class
+com\example\demo\consumo\schemas\GetContractRequest.class
+com\example\demo\consumo\schemas\ObjectFactory.class
+com\example\demo\consumo\schemas\GetPolizaResponse.class
+com\example\demo\consumo\schemas\Exceptions.class
+com\example\demo\consumo\schemas\HuellaFirmante.class
+com\example\demo\consumo\SOAPConnector.class
+com\example\demo\consumo\Application.class
+com\example\demo\consumo\schemas\HuellaYFirmaCliente.class

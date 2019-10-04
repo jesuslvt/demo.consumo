@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
+Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2019.08.15 a las 03:24:52 PM COT 
+
+  -->
+  <bindings xmlns:tns="http://memorynotfound.com/contract" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="com.example.demo.consumo.schemas"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:getContractRequest">
+      <class ref="com.example.demo.consumo.schemas.GetContractRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:map">
+      <class ref="com.example.demo.consumo.schemas.Map"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:HuellaYFirmaCliente">
+      <class ref="com.example.demo.consumo.schemas.HuellaYFirmaCliente"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getContractResponse">
+      <class ref="com.example.demo.consumo.schemas.GetContractResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Exceptions">
+      <class ref="com.example.demo.consumo.schemas.Exceptions"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getPolizaRequest">
+      <class ref="com.example.demo.consumo.schemas.GetPolizaRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:HuellaFirmante">
+      <class ref="com.example.demo.consumo.schemas.HuellaFirmante"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getPolizaResponse">
+      <class ref="com.example.demo.consumo.schemas.GetPolizaResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Firmante">
+      <class ref="com.example.demo.consumo.schemas.Firmante"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:mapEntry">
+      <class ref="com.example.demo.consumo.schemas.MapEntry"/>
+    </bindings>
+  </bindings>
+</bindings>

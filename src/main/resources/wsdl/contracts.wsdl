@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://memorynotfound.com/contract" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://memorynotfound.com/contract" targetNamespace="http://memorynotfound.com/contract">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://memorynotfound.com/contract">
+    <xs:element name="getContractRequest">
+        <xs:complexType>
+            <xs:sequence>              
+                <xs:element name="map" type="tns:map"/>                
+                <xs:element name="huellaYFirmaCliente" type="tns:HuellaYFirmaCliente"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getContractResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="isValid" type="xs:boolean"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="Exceptions" type="tns:Exceptions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getPolizaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="map" type="tns:map"/>
+                <xs:element name="huellaFirmante" type="tns:HuellaFirmante"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getPolizaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="isValid" type="xs:boolean"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="Exceptions" type="tns:Exceptions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="HuellaYFirmaCliente">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="firma" type="xs:string"/>
+            <xs:element name="huella" type="xs:string"/>        
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="HuellaFirmante">
+        <xs:sequence>
+            <xs:element maxOccurs="2" minOccurs="1" name="firmante" type="tns:Firmante"/>
+        </xs:sequence>
+    </xs:complexType>    
+    <xs:complexType name="Firmante">
+        <xs:sequence>
+            <xs:element name="posicion" type="xs:integer"/>
+            <xs:element name="numeroDedo" type="xs:integer"/>      
+            <xs:element name="huella" type="xs:string"/>  
+        </xs:sequence>
+    </xs:complexType>        
+    <xs:complexType name="Exceptions">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>    
+    <xs:complexType name="map">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="mapEntry" type="tns:mapEntry"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mapEntry">
+        <xs:sequence>
+            <xs:element name="key" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getContractResponse">
+    <wsdl:part element="tns:getContractResponse" name="getContractResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolizaResponse">
+    <wsdl:part element="tns:getPolizaResponse" name="getPolizaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getContractRequest">
+    <wsdl:part element="tns:getContractRequest" name="getContractRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolizaRequest">
+    <wsdl:part element="tns:getPolizaRequest" name="getPolizaRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ContractsPort">
+    <wsdl:operation name="getContract">
+      <wsdl:input message="tns:getContractRequest" name="getContractRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getContractResponse" name="getContractResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPoliza">
+      <wsdl:input message="tns:getPolizaRequest" name="getPolizaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getPolizaResponse" name="getPolizaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ContractsPortSoap11" type="tns:ContractsPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getContract">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getContractRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getContractResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPoliza">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPolizaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPolizaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ContractsPortService">
+    <wsdl:port binding="tns:ContractsPortSoap11" name="ContractsPortSoap11">
+      <soap:address location="http://localhost:8090/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
